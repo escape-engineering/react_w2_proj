@@ -8,7 +8,6 @@ const PockeDetail = () => {
     const navigate = useNavigate();
     const params = useParams();
     const targetPokemon = MOCK_DATA.find((poke) => poke.id == params.id);
-    console.log(targetPokemon);
 
     const backToDex = () => {
         navigate("/dex");
