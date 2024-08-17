@@ -2,11 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import SelectedList from "./SelectedList";
 
-const Dashboard = ({ selectedPokemon, onClickDeletePokemonHandler }) => {
+const Dashboard = () => {
     return (
         <SelectedBox>
             <SelectedTitle>나만의 포켓몬</SelectedTitle>
-            <SelectedList selectedPokemon={selectedPokemon} onClickDeletePokemonHandler={onClickDeletePokemonHandler} />
+            <SelectedList />
         </SelectedBox>
     );
 };

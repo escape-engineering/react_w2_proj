@@ -3,6 +3,7 @@ import Dashboard from "../components/dex/Dashboard";
 import PokemonList from "../components/dex/PokemonList";
 import PokemonCard from "../components/dex/PokemonCard";
 import styled from "styled-components";
+import { DexContext } from "../contexts/DexContext";
 
 const Dex = () => {
     const [selectedPokemon, setSelectedPokemon] = useState(Array.from({ length: 6 }));
@@ -31,11 +32,13 @@ const Dex = () => {
         setSelectedPokemon(newArray);
     };
     return (
-        <DexWrapper>
-            <Dashboard selectedPokemon={selectedPokemon} onClickDeletePokemonHandler={onClickDeletePokemonHandler} />
-            <PokemonList onClickAddPokemonHandler={onClickAddPokemonHandler} />
-            <PokemonCard />
-        </DexWrapper>
+        <DexContext.Provider value={{ selectedPokemon, onClickDeletePokemonHandler, onClickAddPokemonHandler }}>
+            <DexWrapper>
+                <Dashboard />
+                <PokemonList />
+                {/* <PokemonCard /> */}
+            </DexWrapper>
+        </DexContext.Provider>
     );
 };
 

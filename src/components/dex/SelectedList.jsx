@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import dexpageEmptyImg from "../../assets/dexPageEmptyImg.png";
 import Button from "../common/Button";
 import { useNavigate } from "react-router-dom";
+import { DexContext } from "../../contexts/DexContext";
 
-const SelectedList = ({ selectedPokemon, onClickDeletePokemonHandler }) => {
+const SelectedList = () => {
     const navigate = useNavigate();
-
+    const { selectedPokemon, onClickDeletePokemonHandler } = useContext(DexContext);
     return (
         <SelectedListWrap>
             {selectedPokemon.map((poke) => {
