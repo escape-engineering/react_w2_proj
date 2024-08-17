@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Dashboard from "../components/dex/Dashboard";
 import PokemonList from "../components/dex/PokemonList";
-import PokemonCard from "../components/dex/PokemonCard";
 import styled from "styled-components";
 import { DexContext } from "../contexts/DexContext";
 
