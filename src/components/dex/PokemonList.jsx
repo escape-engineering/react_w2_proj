@@ -17,7 +17,7 @@ const PokemonList = ({ onClickAddPokemonHandler }) => {
                         <PokeName>{mock.korean_name}</PokeName>
                         <PokeId>No. {mock.id}</PokeId>
                         <Button
-                            onClickHandler={() => onClickAddPokemonHandler(e, mock)}
+                            onClickHandler={(e) => onClickAddPokemonHandler(e, mock)}
                             $width="50px"
                             $height="30px"
                             $backgroundColor="#9bee81"
