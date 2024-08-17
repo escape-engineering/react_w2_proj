@@ -36,7 +36,6 @@ const Dex = () => {
             <DexWrapper>
                 <Dashboard />
                 <PokemonList />
-                {/* <PokemonCard /> */}
             </DexWrapper>
         </DexContext.Provider>
     );
