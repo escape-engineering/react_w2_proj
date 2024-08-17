@@ -7,16 +7,17 @@ import { PokeImg, PokeName, PokeId } from "./SelectedList";
 
 const PokemonList = ({ onClickAddPokemonHandler }) => {
     const navigate = useNavigate();
+
     return (
         <PokemonListWrap>
             {MOCK_DATA.map((mock) => {
                 return (
-                    <PokeDiv key={mock.id}>
+                    <PokeDiv key={mock.id} onClick={() => navigate(`/pockedetail/${mock.id}`)}>
                         <PokeImg src={mock.img_url} />
                         <PokeName>{mock.korean_name}</PokeName>
                         <PokeId>No. {mock.id}</PokeId>
                         <Button
-                            onClickHandler={() => onClickAddPokemonHandler(mock)}
+                            onClickHandler={() => onClickAddPokemonHandler(e, mock)}
                             $width="50px"
                             $height="30px"
                             $backgroundColor="#9bee81"
@@ -49,6 +50,7 @@ const PokemonListWrap = styled.div`
 `;
 
 const PokeDiv = styled.div`
+    cursor: pointer;
     width: 100px;
     height: 200px;
     background-color: white;

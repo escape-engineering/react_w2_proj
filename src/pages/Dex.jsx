@@ -6,7 +6,8 @@ import styled from "styled-components";
 
 const Dex = () => {
     const [selectedPokemon, setSelectedPokemon] = useState(Array.from({ length: 6 }));
-    const onClickAddPokemonHandler = (pokemonData) => {
+    const onClickAddPokemonHandler = (e, pokemonData) => {
+        e.stopPropagation();
         const emptyIndex = selectedPokemon.findIndex((poke) => poke === undefined);
         if (emptyIndex === -1) {
             alert("포켓몬 선택은 6개까지 가능합니다!");
