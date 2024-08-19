@@ -1,29 +1,16 @@
 import styled from "styled-components";
 import dexpageEmptyImg from "../../assets/dexPageEmptyImg.png";
 import Button from "../common/Button";
-import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { deletePoke } from "../../redux/slices/pokeSlices";
+import useSelectPokemon from "../../hooks/useSelectPokemon";
 
 const SelectedList = () => {
-    const navigate = useNavigate();
-    const dispatch = useDispatch();
-    const selectedPokemon = useSelector((state) => state.pokes);
-
-    const onClickDeletePokemonHandler = (e) => {
-        e.stopPropagation();
-        dispatch(
-            deletePoke({
-                id: e.target.name,
-            })
-        );
-    };
+    const { selectedPokemon, onClickDeletePokemonHandler, goToDetail } = useSelectPokemon();
 
     return (
         <SelectedListWrap>
             {selectedPokemon.map((poke) => {
                 return poke ? (
-                    <PokeDiv key={crypto.randomUUID()} onClick={() => navigate(`/pockedetail/${poke.id}`)}>
+                    <PokeDiv key={crypto.randomUUID()} onClick={() => goToDetail(poke.id)}>
                         <PokeImg src={poke.img_url} />
                         <PokeName>{poke.korean_name}</PokeName>
                         <PokeId>No. {poke.id}</PokeId>

@@ -1,30 +1,13 @@
 import Button from "../common/Button";
 import styled from "styled-components";
 import { PokeImg, PokeName, PokeId } from "./SelectedList";
-import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { addPoke } from "../../redux/slices/pokeSlices";
-import { check } from "../../util";
+import useSelectPokemon from "../../hooks/useSelectPokemon";
 
 const PokemonCard = ({ mock }) => {
-    const navigate = useNavigate();
-    const dispatch = useDispatch();
-    const selectedPokemon = useSelector((state) => state.pokes);
-
-    const onClickAddPokemonHandler = (e, pokemonData) => {
-        e.stopPropagation();
-        const emptyIndex = selectedPokemon.findIndex((poke) => poke === undefined);
-        if (!check(emptyIndex, selectedPokemon, pokemonData)) return null;
-        dispatch(
-            addPoke({
-                emptyIndex,
-                pokemonData,
-            })
-        );
-    };
+    const { onClickAddPokemonHandler, goToDetail } = useSelectPokemon();
 
     return (
-        <PokeDiv key={mock.id} onClick={() => navigate(`/pockedetail/${mock.id}`)}>
+        <PokeDiv key={mock.id} onClick={() => goToDetail(mock.id)}>
             <PokeImg src={mock.img_url} />
             <PokeName>{mock.korean_name}</PokeName>
             <PokeId>No. {mock.id}</PokeId>

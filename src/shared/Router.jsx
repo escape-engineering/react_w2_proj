@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Landing from "../pages/Landing";
 import Dex from "../pages/Dex";
-import PockeDetail from "../pages/PockeDetail";
+import PokeDetail from "../pages/PockeDetail";
 import { Bounce, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -12,7 +12,7 @@ const Router = () => {
             <Routes>
                 <Route path="/" element={<Landing />} />
                 <Route path="/dex" element={<Dex />} />
-                <Route path="/pockedetail/:id" element={<PockeDetail />} />
+                <Route path="/pokedetail/:id" element={<PokeDetail />} />
             </Routes>
             <ToastContainer
                 position="bottom-right"
