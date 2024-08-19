@@ -1,28 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 //state init
-const initialState = [
-    { id: 1, title: "react를 배워봅시다." },
-    { id: 2, title: "redux를 배워봅시다." },
-];
+const initialState = Array.from({ length: 6 });
 
-const todosSlice = createSlice({
-    name: "todos",
+const pokesSlice = createSlice({
+    name: "pokes",
     initialState,
     reducers: {
-        addTodo: (state, action) => {
-            return [...state, action.payload];
+        addPoke: (state, action) => {
+            const { emptyIndex, pokemonData } = action.payload;
+            return [...state].with(emptyIndex, pokemonData);
         },
-        updateTodo: (state, action) => {
-            return [...state].map((todo) => {
-                return todo.id === action.payload.id ? { ...todo, title: action.payload.title } : todo;
-            });
-        },
-        deleteTodo: (state, action) => {
-            return [...state].filter((todo) => todo.id !== action.payload.id);
+        deletePoke: (state, action) => {
+            return [...state].map((poke) => (poke?.id == action.payload.id ? undefined : poke));
         },
     },
 });
 
-export const { addTodo, updateTodo, deleteTodo } = todosSlice.actions;
-export default todosSlice.reducer;
+export const { addPoke, deletePoke } = pokesSlice.actions;
+export default pokesSlice.reducer;

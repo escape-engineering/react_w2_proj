@@ -1,13 +1,25 @@
-import React, { useContext } from "react";
 import styled from "styled-components";
 import dexpageEmptyImg from "../../assets/dexPageEmptyImg.png";
 import Button from "../common/Button";
 import { useNavigate } from "react-router-dom";
-import { DexContext } from "../../contexts/DexContext";
+import { useDispatch, useSelector } from "react-redux";
+import { deletePoke } from "../../redux/slices/pokeSlices";
 
 const SelectedList = () => {
     const navigate = useNavigate();
-    const { selectedPokemon, onClickDeletePokemonHandler } = useContext(DexContext);
+    const dispatch = useDispatch();
+    const selectedPokemon = useSelector((state) => state.pokes);
+
+    const onClickDeletePokemonHandler = (e) => {
+        e.stopPropagation();
+
+        dispatch(
+            deletePoke({
+                id: e.target.name,
+            })
+        );
+    };
+
     return (
         <SelectedListWrap>
             {selectedPokemon.map((poke) => {

@@ -1,13 +1,37 @@
-import React, { useContext } from "react";
 import Button from "../common/Button";
 import styled from "styled-components";
 import { PokeImg, PokeName, PokeId } from "./SelectedList";
-import { DexContext } from "../../contexts/DexContext";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { addPoke } from "../../redux/slices/pokeSlices";
 
 const PokemonCard = ({ mock }) => {
     const navigate = useNavigate();
-    const { onClickAddPokemonHandler } = useContext(DexContext);
+    const dispatch = useDispatch();
+    const selectedPokemon = useSelector((state) => state.pokes);
+
+    const onClickAddPokemonHandler = (e, pokemonData) => {
+        e.stopPropagation();
+        const emptyIndex = selectedPokemon.findIndex((poke) => poke === undefined);
+        if (emptyIndex === -1) {
+            alert("포켓몬 선택은 6개까지 가능합니다!");
+            return null;
+        }
+        if (selectedPokemon[0] !== undefined) {
+            const checkDuplication = selectedPokemon.some((poke) => poke?.id === pokemonData.id);
+            if (checkDuplication) {
+                alert("이미 해당 포켓몬을 선택하였습니다!");
+                return null;
+            }
+        }
+        dispatch(
+            addPoke({
+                emptyIndex,
+                pokemonData,
+            })
+        );
+    };
+
     return (
         <PokeDiv key={mock.id} onClick={() => navigate(`/pockedetail/${mock.id}`)}>
             <PokeImg src={mock.img_url} />

@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import todosSlice from "../slices/todosSlice";
+import pokesSlice from "../slices/pokeSlices";
 
 const store = configureStore({
     reducer: {
-        todos: todosSlice,
+        pokes: pokesSlice,
     },
 });
 
