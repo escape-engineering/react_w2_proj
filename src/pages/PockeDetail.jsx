@@ -1,35 +1,10 @@
 import React from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import MOCK_DATA from "../mock";
 import styled from "styled-components";
 import Button from "../components/common/Button";
-import { useDispatch, useSelector } from "react-redux";
-import { addPoke } from "../redux/slices/pokeSlices";
-import { check } from "../util";
+import useSelectPokemon from "../hooks/useSelectPokemon";
 
 const PockeDetail = () => {
-    const navigate = useNavigate();
-    const dispatch = useDispatch();
-    const params = useParams();
-    const targetPokemon = MOCK_DATA.find((poke) => poke.id == params.id);
-
-    const backToDex = () => {
-        navigate("/dex");
-    };
-
-    const selectedPokemon = useSelector((state) => state.pokes);
-
-    const onClickAddPokemonHandler = (e, pokemonData) => {
-        e.stopPropagation();
-        const emptyIndex = selectedPokemon.findIndex((poke) => poke === undefined);
-        if (!check(emptyIndex, selectedPokemon, pokemonData)) return null;
-        dispatch(
-            addPoke({
-                emptyIndex,
-                pokemonData,
-            })
-        );
-    };
+    const { targetPokemon, onClickAddPokemonHandler, backToDex } = useSelectPokemon();
 
     return (
         <Wrapper>
