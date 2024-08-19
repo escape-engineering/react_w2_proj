@@ -19,7 +19,7 @@ const PockeDetail = () => {
 
     const selectedPokemon = useSelector((state) => state.pokes);
 
-    const onClickAddPokemonHandler2 = (e, pokemonData) => {
+    const onClickAddPokemonHandler = (e, pokemonData) => {
         e.stopPropagation();
         const emptyIndex = selectedPokemon.findIndex((poke) => poke === undefined);
         if (!check(emptyIndex, selectedPokemon, pokemonData)) return null;
@@ -40,7 +40,7 @@ const PockeDetail = () => {
                 <PokeDetailDesc>{targetPokemon.description}</PokeDetailDesc>
                 <ButtonWrap>
                     <Button
-                        onClick={(e) => onClickAddPokemonHandler2(e, targetPokemon)}
+                        onClick={(e) => onClickAddPokemonHandler(e, targetPokemon)}
                         $width="150px"
                         $height="50px"
                         $backgroundColor="#9bee81"

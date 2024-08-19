@@ -12,7 +12,6 @@ const SelectedList = () => {
 
     const onClickDeletePokemonHandler = (e) => {
         e.stopPropagation();
-
         dispatch(
             deletePoke({
                 id: e.target.name,
