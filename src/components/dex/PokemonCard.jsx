@@ -4,6 +4,7 @@ import { PokeImg, PokeName, PokeId } from "./SelectedList";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addPoke } from "../../redux/slices/pokeSlices";
+import { check } from "../../util";
 
 const PokemonCard = ({ mock }) => {
     const navigate = useNavigate();
@@ -13,17 +14,7 @@ const PokemonCard = ({ mock }) => {
     const onClickAddPokemonHandler = (e, pokemonData) => {
         e.stopPropagation();
         const emptyIndex = selectedPokemon.findIndex((poke) => poke === undefined);
-        if (emptyIndex === -1) {
-            alert("포켓몬 선택은 6개까지 가능합니다!");
-            return null;
-        }
-        if (selectedPokemon[0] !== undefined) {
-            const checkDuplication = selectedPokemon.some((poke) => poke?.id === pokemonData.id);
-            if (checkDuplication) {
-                alert("이미 해당 포켓몬을 선택하였습니다!");
-                return null;
-            }
-        }
+        if (!check(emptyIndex, selectedPokemon, pokemonData)) return null;
         dispatch(
             addPoke({
                 emptyIndex,
