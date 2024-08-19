@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Button from "../components/common/Button";
 import { useNavigate } from "react-router-dom";
 import landingPageBackground from "../assets/landingPageBackground.jpg";
+import landingPageLogo from "../assets/landingPageLogo.png";
 
 const Landing = () => {
     const navigate = useNavigate();
@@ -14,7 +15,7 @@ const Landing = () => {
     return (
         <BackgroundDiv $image={landingPageBackground}>
             <LandingWrapper>
-                <LandingLogo src="src/assets/landingPageLogo.png" />
+                <LandingLogo src={landingPageLogo} />
                 <Button
                     onClickHandler={navToDex}
                     $width="200px"
