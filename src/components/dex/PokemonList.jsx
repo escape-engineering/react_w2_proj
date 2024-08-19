@@ -15,7 +15,7 @@ const PokemonList = () => {
 
 export default PokemonList;
 
-const PokemonListWrap = styled.div`
+const PokemonListWrap = styled.ol`
     width: 1200px;
     padding: 20px;
     display: flex;
