@@ -29,7 +29,7 @@ const PokemonCard = ({ mock }) => {
 
 export default PokemonCard;
 
-const PokeDiv = styled.div`
+const PokeDiv = styled.li`
     cursor: pointer;
     width: 100px;
     height: 200px;

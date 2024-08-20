@@ -40,7 +40,7 @@ const SelectedList = () => {
 
 export default SelectedList;
 
-const SelectedListWrap = styled.div`
+const SelectedListWrap = styled.ul`
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -48,7 +48,7 @@ const SelectedListWrap = styled.div`
     gap: 10px;
 `;
 
-const PokeDiv = styled.div`
+const PokeDiv = styled.li`
     cursor: pointer;
     border: 1px dashed #d6d6d6;
     border-radius: 10px;
