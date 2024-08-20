@@ -17,13 +17,9 @@ const SelectedList = () => {
                         <Button
                             onClickHandler={(e) => onClickDeletePokemonHandler(e)}
                             name={poke.id}
-                            $width="50px"
-                            $height="30px"
                             $backgroundColor="red"
-                            $border="none"
-                            $borderRadius="5px"
                             $color="white"
-                            $margin="10px 0px"
+                            $fontSize="14px"
                         >
                             삭제
                         </Button>

@@ -11,16 +11,7 @@ const PokemonCard = ({ mock }) => {
             <PokeImg src={mock.img_url} />
             <PokeName>{mock.korean_name}</PokeName>
             <PokeId>No. {mock.id}</PokeId>
-            <Button
-                onClickHandler={(e) => onClickAddPokemonHandler(e, mock)}
-                $width="50px"
-                $height="30px"
-                $backgroundColor="#9bee81"
-                $border="none"
-                $borderRadius="5px"
-                $color="black"
-                $margin="10px 0px"
-            >
+            <Button onClickHandler={(e) => onClickAddPokemonHandler(e, mock)} $fontSize="14px">
                 추가
             </Button>
         </PokeDiv>
