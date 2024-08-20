@@ -12,7 +12,7 @@ const Router = () => {
             <Routes>
                 <Route path="/" element={<Landing />} />
                 <Route path="/dex" element={<Dex />} />
-                <Route path="/pokedetail/:id" element={<PokeDetail />} />
+                <Route path="/pokedetail" element={<PokeDetail />} />
             </Routes>
             <ToastContainer
                 position="bottom-right"
