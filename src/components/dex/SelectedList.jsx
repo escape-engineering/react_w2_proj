@@ -10,7 +10,7 @@ const SelectedList = () => {
         <SelectedListWrap>
             {selectedPokemon.map((poke) => {
                 return poke ? (
-                    <PokeDiv key={crypto.randomUUID()} onClick={() => goToDetail(poke.id)}>
+                    <PokeDiv key={poke.id} onClick={() => goToDetail(poke.id)}>
                         <PokeImg src={poke.img_url} />
                         <PokeName>{poke.korean_name}</PokeName>
                         <PokeId>No. {poke.id}</PokeId>
