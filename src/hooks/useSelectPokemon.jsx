@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { addPoke, deletePoke } from "../redux/slices/pokeSlices";
 import MOCK_DATA from "../mock";
 import { check } from "../util";
