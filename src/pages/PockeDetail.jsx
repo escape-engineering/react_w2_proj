@@ -16,13 +16,7 @@ const PockeDetail = () => {
                 <ButtonWrap>
                     <Button
                         onClick={(e) => onClickAddPokemonHandler(e, targetPokemon)}
-                        $width="150px"
                         $height="50px"
-                        $backgroundColor="#9bee81"
-                        $border="none"
-                        $borderRadius="5px"
-                        $color="#000000"
-                        $margin="10px 0px"
                         $fontSize="20px"
                         $fontWeight="bold"
                     >
@@ -30,13 +24,9 @@ const PockeDetail = () => {
                     </Button>
                     <Button
                         onClick={backToDex}
-                        $width="150px"
                         $height="50px"
                         $backgroundColor="#b1b0b0"
-                        $border="none"
-                        $borderRadius="5px"
                         $color="white"
-                        $margin="10px 0px"
                         $fontSize="20px"
                         $fontWeight="bold"
                     >

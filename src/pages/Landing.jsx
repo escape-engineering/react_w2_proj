@@ -18,13 +18,9 @@ const Landing = () => {
                 <LandingLogo src={landingPageLogo} />
                 <Button
                     onClickHandler={navToDex}
-                    $width="200px"
                     $height="40px"
                     $backgroundColor="red"
-                    $border="none"
-                    $borderRadius="5px"
                     $color="white"
-                    $fontSize="18px"
                     $fontWeight="bold"
                 >
                     포켓몬 도감 시작하기
