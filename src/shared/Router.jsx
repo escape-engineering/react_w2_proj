@@ -5,6 +5,7 @@ import Dex from "../pages/Dex";
 import PokeDetail from "../pages/PockeDetail";
 import { Bounce, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import NotFound from "../pages/NotFound";
 
 const Router = () => {
     return (
@@ -13,6 +14,7 @@ const Router = () => {
                 <Route path="/" element={<Landing />} />
                 <Route path="/dex" element={<Dex />} />
                 <Route path="/pokedetail" element={<PokeDetail />} />
+                <Route path="*" element={<NotFound />} />
             </Routes>
             <ToastContainer
                 position="bottom-right"
